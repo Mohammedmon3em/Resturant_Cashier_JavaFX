@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.seafoodpos.controller.OrderController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="14"/></padding>
+            <Label fx:id="titleLabel" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="14">
+
+            <!-- MENU (left, scrollable) -->
+            <ScrollPane fx:id="menuScrollPane"
+                        fitToWidth="true" HBox.hgrow="ALWAYS"
+                        vbarPolicy="AS_NEEDED" hbarPolicy="NEVER"
+                        style="-fx-background-color:transparent;-fx-background:transparent;-fx-border-color:transparent;">
+                <VBox fx:id="menuContainer" spacing="10"
+                      style="-fx-background-color:transparent;"
+                      fillWidth="true"/>
+            </ScrollPane>
+
+            <!-- CART (right) -->
+            <VBox fx:id="cartPanel" minWidth="360" maxWidth="400"
+                  spacing="10" VBox.vgrow="ALWAYS"
+                  style="-fx-background-color:#0e1f30;-fx-background-radius:14;-fx-padding:16;-fx-border-color:#1a3a5c;-fx-border-radius:14;-fx-border-width:1;-fx-effect:dropshadow(gaussian,rgba(0,0,0,0.4),12,0,0,3);">
+
+                <Label fx:id="cartTitleLabel"
+                       style="-fx-font-size:15px;-fx-font-weight:bold;-fx-text-fill:#00b4d8;"/>
+
+                <TableView fx:id="cartTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colItem"   prefWidth="140"/>
+                        <TableColumn fx:id="colDetail" prefWidth="90"/>
+                        <TableColumn fx:id="colPrice"  prefWidth="65"/>
+                        <TableColumn fx:id="colTotal"  prefWidth="65"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="8" alignment="CENTER_RIGHT">
+                    <Button fx:id="removeItemButton" onAction="#handleRemoveItem"
+                            text="- Remove"
+                            style="-fx-background-color:transparent;-fx-border-color:#445566;-fx-border-radius:6;-fx-text-fill:#5a7080;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;"/>
+                    <Button fx:id="clearButton" onAction="#handleClear"
+                            style="-fx-background-color:transparent;-fx-border-color:#ef535060;-fx-border-radius:7;-fx-text-fill:#ef5350;-fx-font-size:12px;-fx-padding:7 14;-fx-cursor:hand;"/>
+                </HBox>
+
+                <!-- TOTAL -->
+                <VBox spacing="3"
+                      style="-fx-background-color:#091825;-fx-background-radius:10;-fx-padding:14 18;-fx-border-color:#00b4d830;-fx-border-radius:10;-fx-border-width:1;">
+                    <Label text="Grand Total / &#x625;&#x62c;&#x645;&#x627;&#x644;&#x64a; &#x627;&#x644;&#x643;&#x644;&#x64a;"
+                           style="-fx-font-size:12px;-fx-text-fill:#5a7080;"/>
+                    <Label fx:id="grandTotalLabel"
+                           style="-fx-font-size:28px;-fx-font-weight:bold;-fx-text-fill:#06d6a0;" text="0.00 SAR"/>
+                </VBox>
+
+                <!-- CONFIRM -->
+                <Button fx:id="confirmButton" onAction="#handleConfirmOrder"
+                        maxWidth="Infinity"
+                        style="-fx-background-color:linear-gradient(to bottom,#06d6a0,#04b889);-fx-text-fill:#040f1a;-fx-font-size:16px;-fx-font-weight:bold;-fx-padding:16 20;-fx-background-radius:12;-fx-cursor:hand;-fx-effect:dropshadow(gaussian,rgba(6,214,160,0.55),16,0,0,4);"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

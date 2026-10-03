@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.seafoodpos.controller.MenuManagementController"
+      spacing="14">
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="titleLabel" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnAdd"             onAction="#handleAdd"             styleClass="btn-primary"/>
+        <Button fx:id="btnEdit"            onAction="#handleEdit"            styleClass="btn-warning"/>
+        <Button fx:id="btnDelete"          onAction="#handleDelete"          styleClass="btn-danger"/>
+        <Button fx:id="btnToggleAvailable" onAction="#handleToggleAvailable" styleClass="btn-success"/>
+    </HBox>
+
+    <TableView fx:id="menuTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"         text="ID"        prefWidth="44"/>
+            <TableColumn fx:id="colName"       text="Name"      prefWidth="190"/>
+            <TableColumn fx:id="colType"       text="Type"      prefWidth="95"/>
+            <TableColumn fx:id="colCategory"   text="Category"  prefWidth="100"/>
+            <TableColumn fx:id="colPriceKg"    text="Price/kg"  prefWidth="80"/>
+            <TableColumn fx:id="colPriceSmall" text="Small"     prefWidth="70"/>
+            <TableColumn fx:id="colPriceLarge" text="Large"     prefWidth="70"/>
+            <TableColumn fx:id="colAvailable"  text="Available" prefWidth="82"/>
+        </columns>
+    </TableView>
+</VBox>

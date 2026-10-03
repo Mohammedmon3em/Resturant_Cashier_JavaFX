@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.seafoodpos.controller.LoginController"
+           styleClass="login-root"
+           stylesheets="@../css/login.css"
+           prefWidth="960" prefHeight="680">
+    <VBox alignment="CENTER" StackPane.alignment="CENTER">
+        <VBox styleClass="login-card" alignment="CENTER" spacing="22">
+            <ImageView fitHeight="176" fitWidth="176" preserveRatio="false">
+                <clip>
+                    <Circle centerX="88" centerY="88" radius="80" />
+                </clip>
+                <image>
+                    <Image url="@../images/logo.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="6" alignment="CENTER">
+                <Label fx:id="titleLabel"    styleClass="login-title"/>
+                <Label fx:id="subtitleLabel" styleClass="login-subtitle"/>
+            </VBox>
+            <VBox spacing="12" maxWidth="320" minWidth="300">
+                <TextField    fx:id="usernameField" styleClass="login-field"/>
+                <StackPane alignment="CENTER_RIGHT">
+                    <TextField fx:id="passwordVisibleField" styleClass="login-field" managed="false" visible="false"/>
+                    <PasswordField fx:id="passwordField" styleClass="login-field"/>
+                    <ToggleButton fx:id="togglePasswordButton" text="👁" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: #9ab0c0; -fx-font-size: 16px;"/>
+                </StackPane>
+                <Label fx:id="errorLabel" styleClass="login-error" wrapText="true"
+                       maxWidth="320" minHeight="18"/>
+                <Button fx:id="loginButton" onAction="#handleLogin"
+                        styleClass="login-button" maxWidth="Infinity"/>
+            </VBox>
+            <Pane prefHeight="4"/>
+            <Button fx:id="langToggleButton" onAction="#handleLanguageToggle"
+                    styleClass="lang-toggle-btn"/>
+        </VBox>
+    </VBox>
+</StackPane>

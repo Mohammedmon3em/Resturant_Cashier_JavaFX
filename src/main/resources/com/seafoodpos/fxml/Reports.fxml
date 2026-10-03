@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.seafoodpos.controller.ReportsController"
+      spacing="14">
+
+    <Label fx:id="titleLabel" styleClass="page-title"/>
+
+    <VBox styleClass="card" spacing="10">
+        <FlowPane hgap="10" vgap="10" alignment="CENTER_LEFT">
+            <ComboBox fx:id="reportCategoryCombo" prefWidth="150"/>
+            <ComboBox fx:id="reportTypeCombo" prefWidth="135"/>
+            <DatePicker fx:id="datePicker"   prefWidth="155"/>
+            <ComboBox fx:id="monthCombo"     prefWidth="120"/>
+            <ComboBox fx:id="quarterCombo"   prefWidth="78"/>
+            <ComboBox fx:id="halfCombo"      prefWidth="135"/>
+            <ComboBox fx:id="yearCombo"      prefWidth="88"/>
+        </FlowPane>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="btnGenerate" onAction="#handleGenerate" styleClass="btn-primary"/>
+            <Button fx:id="btnSavePdf"  onAction="#handleSavePdf"  styleClass="btn-warning"/>
+            <Button fx:id="btnPrint"    onAction="#handlePrint"    styleClass="btn-success"/>
+        </HBox>
+    </VBox>
+
+    <FlowPane fx:id="summaryCardsPane" hgap="14" vgap="14" visible="false" managed="false">
+        <VBox styleClass="summary-card" spacing="6" minWidth="200">
+            <Label fx:id="lblTotalRevenue" styleClass="summary-value" text="0.00 SAR"/>
+            <Label styleClass="summary-label" text="Total Revenue / &#x625;&#x62c;&#x645;&#x627;&#x644;&#x64a; &#x627;&#x644;&#x625;&#x64a;&#x631;&#x627;&#x62f;&#x627;&#x62a;"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" minWidth="200">
+            <Label fx:id="lblTotalPurchases" styleClass="summary-value" text="0.00 SAR"/>
+            <Label styleClass="summary-label" text="Total Purchases / المشتريات"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" minWidth="200">
+            <Label fx:id="lblTotalExpenses" styleClass="summary-value" text="0.00 SAR"/>
+            <Label styleClass="summary-label" text="Total Expenses / &#x625;&#x62c;&#x645;&#x627;&#x644;&#x64a; &#x627;&#x644;&#x645;&#x635;&#x631;&#x648;&#x641;&#x627;&#x62a;"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" minWidth="200">
+            <Label fx:id="lblTotalDepreciation" styleClass="summary-value" text="0.00 SAR"/>
+            <Label styleClass="summary-label" text="Depreciation / الإهلاك"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" minWidth="200">
+            <Label fx:id="lblNetProfit" styleClass="summary-value" text="0.00 SAR"/>
+            <Label styleClass="summary-label" text="Net Profit / &#x635;&#x627;&#x641;&#x64a; &#x627;&#x644;&#x631;&#x628;&#x62d;"/>
+        </VBox>
+    </FlowPane>
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <TableView fx:id="ordersTable" visible="false">
+            <columns>
+                <TableColumn fx:id="colOrderNum" text="Order #"  prefWidth="100"/>
+                <TableColumn fx:id="colCashier"  text="Cashier"  prefWidth="170"/>
+                <TableColumn fx:id="colAmount"   text="Amount"   prefWidth="130"/>
+                <TableColumn fx:id="colTime"     text="Time"     prefWidth="195"/>
+            </columns>
+        </TableView>
+        <TableView fx:id="purchasesTable" visible="false">
+            <columns>
+                <TableColumn fx:id="colPurchItem" text="Item Name" prefWidth="200"/>
+                <TableColumn fx:id="colPurchQty"  text="Quantity (kg)" prefWidth="120"/>
+                <TableColumn fx:id="colPurchCost" text="Cost" prefWidth="120"/>
+                <TableColumn fx:id="colPurchTime" text="Time" prefWidth="195"/>
+            </columns>
+        </TableView>
+        <TableView fx:id="expensesTable" visible="false">
+            <columns>
+                <TableColumn fx:id="colExpName" text="Expense Name" prefWidth="250"/>
+                <TableColumn fx:id="colExpAmount" text="Amount" prefWidth="150"/>
+                <TableColumn fx:id="colExpTime" text="Time" prefWidth="195"/>
+            </columns>
+        </TableView>
+    </StackPane>
+</VBox>

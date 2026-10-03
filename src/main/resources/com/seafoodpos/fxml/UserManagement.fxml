@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.seafoodpos.controller.UserManagementController"
+      spacing="14">
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="titleLabel" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnAdd"          onAction="#handleAdd"          styleClass="btn-primary"/>
+        <Button fx:id="btnChangePassword" onAction="#handleChangePassword" styleClass="btn-secondary" text="Change Password"/>
+        <Button fx:id="btnToggleActive" onAction="#handleToggleActive" styleClass="btn-warning"/>
+        <Button fx:id="btnDelete"       onAction="#handleDelete"       styleClass="btn-danger"/>
+    </HBox>
+
+    <TableView fx:id="userTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"       text="ID"        prefWidth="44"/>
+            <TableColumn fx:id="colFullName" text="Full Name"  prefWidth="190"/>
+            <TableColumn fx:id="colUsername" text="Username"   prefWidth="120"/>
+            <TableColumn fx:id="colRole"     text="Role"       prefWidth="145"/>
+            <TableColumn fx:id="colActive"   text="Status"     prefWidth="110"/>
+            <TableColumn fx:id="colCreated"  text="Created"    prefWidth="160"/>
+        </columns>
+    </TableView>
+</VBox>

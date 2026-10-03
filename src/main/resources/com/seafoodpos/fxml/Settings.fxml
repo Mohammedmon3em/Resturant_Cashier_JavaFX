@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.seafoodpos.controller.SettingsController"
+      spacing="18">
+
+    <Label fx:id="titleLabel" styleClass="page-title"/>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color:transparent;-fx-background:transparent;">
+      <VBox spacing="14">
+
+        <!-- Restaurant Info -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Restaurant Information" styleClass="section-header"/>
+            <GridPane hgap="14" vgap="10">
+                <Label text="Restaurant Name (EN):" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label"/>
+                <TextField fx:id="restaurantNameField"   GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="270"/>
+                <Label text="Restaurant Name (AR):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label"/>
+                <TextField fx:id="restaurantNameArField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="270"/>
+                <Label text="Currency Symbol:"     GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label"/>
+                <TextField fx:id="currencyField"         GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="90"/>
+            </GridPane>
+        </VBox>
+
+        <!-- Receipt Footer -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Receipt Footer" styleClass="section-header"/>
+            <GridPane hgap="14" vgap="10">
+                <Label text="Footer (EN):" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label"/>
+                <TextField fx:id="footerField"   GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="270"/>
+                <Label text="Footer (AR):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label"/>
+                <TextField fx:id="footerArField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="270"/>
+            </GridPane>
+        </VBox>
+
+        <!-- Printers -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Printer Configuration" styleClass="section-header"/>
+            <GridPane hgap="14" vgap="10">
+                <Label text="Customer Printer (A):" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label"/>
+                <ComboBox fx:id="printerCustomerCombo" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="280"/>
+                <Label text="Kitchen Printer (B):"  GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label"/>
+                <ComboBox fx:id="printerKitchenCombo"  GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="280"/>
+                <Label text="Juice Printer (C):"    GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label"/>
+                <ComboBox fx:id="printerJuiceCombo"    GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="280"/>
+                <Label text="Reports Printer:"      GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="label"/>
+                <ComboBox fx:id="printerReportsCombo"  GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="280"/>
+            </GridPane>
+            <Button fx:id="btnRefresh" onAction="#handleRefresh" styleClass="btn-warning"/>
+        </VBox>
+
+        <!-- Language -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Language / &#x627;&#x644;&#x644;&#x63a;&#x629;" styleClass="section-header"/>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="UI Language:" styleClass="label"/>
+                <ComboBox fx:id="languageCombo" prefWidth="160"/>
+            </HBox>
+        </VBox>
+
+      </VBox>
+    </ScrollPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="btnTestPrint" onAction="#handleTestPrint" styleClass="btn-warning"/>
+        <Button fx:id="btnSave"      onAction="#handleSave"      styleClass="btn-success"/>
+    </HBox>
+</VBox>

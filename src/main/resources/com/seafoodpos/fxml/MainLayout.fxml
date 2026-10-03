@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.seafoodpos.controller.MainLayoutController"
+            fx:id="mainPane"
+            styleClass="main-root"
+            prefWidth="1280" prefHeight="800">
+
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" spacing="4">
+            <padding><Insets top="16" right="12" bottom="16" left="12"/></padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="72" fitWidth="72" preserveRatio="false">
+                    <clip>
+                        <Circle centerX="36" centerY="36" radius="32" />
+                    </clip>
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="restaurantNameLabel"
+                       text="AL-Muaid Fish POS"
+                       styleClass="sidebar-logo" maxWidth="Infinity" wrapText="true"/>
+            </HBox>
+
+            <VBox styleClass="user-info-box" spacing="4">
+                <Label fx:id="userNameLabel" styleClass="user-name" wrapText="true"/>
+                <Label fx:id="userRoleLabel" styleClass="user-role"  wrapText="true"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-sep"/>
+
+            <Button fx:id="btnOrders"   onAction="#handleOrders"   styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnMenu"     onAction="#handleMenu"     styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnInventory" onAction="#handleInventory" styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnExpenses" onAction="#handleExpenses" styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnUsers"    onAction="#handleUsers"    styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnReports"  onAction="#handleReports"  styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnSettings" onAction="#handleSettings" styleClass="nav-btn" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator styleClass="sidebar-sep"/>
+            <Button fx:id="btnLanguage" onAction="#handleLanguage" styleClass="nav-btn lang-btn"   maxWidth="Infinity"/>
+            <Button fx:id="btnChangePassword" onAction="#handleChangePassword" styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="btnLogout"   onAction="#handleLogout"   styleClass="nav-btn logout-btn" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+</BorderPane>

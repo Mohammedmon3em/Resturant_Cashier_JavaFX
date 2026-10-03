@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.seafoodpos.controller.InventoryController" spacing="14">
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Inventory Management" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Purchase Entry (W1)" onAction="#handlePurchase" styleClass="btn-primary"/>
+        <Button text="Cleaning Entry (W1 -> W2)" onAction="#handleCleaning" styleClass="btn-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colItem" text="Item Name" prefWidth="250"/>
+            <TableColumn fx:id="colW1" text="Warehouse 1 (Purchased)" prefWidth="200"/>
+            <TableColumn fx:id="colW2" text="Warehouse 2 (Cleaned / Ready)" prefWidth="250"/>
+        </columns>
+    </TableView>
+</VBox>

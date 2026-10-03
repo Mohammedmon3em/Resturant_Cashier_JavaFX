@@ -1,0 +1,97 @@
+/* ===== ORDER SCREEN ===== */
+.order-root { -fx-background-color: #0d1b2a; }
+
+.menu-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.menu-scroll .viewport { -fx-background-color: transparent; }
+
+.menu-container {
+    -fx-spacing: 12;
+    -fx-padding: 5 10 10 5;
+    -fx-background-color: transparent;
+    -fx-fill-width: true;
+}
+
+/* === CART PANEL === */
+.cart-panel {
+    -fx-background-color: #0e1f30;
+    -fx-background-radius: 14;
+    -fx-padding: 16;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 3);
+    -fx-border-color: #1a3a5c;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+}
+
+.cart-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00b4d8;
+}
+
+/* === TOTAL DISPLAY === */
+.total-display {
+    -fx-background-color: #091825;
+    -fx-background-radius: 10;
+    -fx-padding: 14 18;
+    -fx-spacing: 3;
+    -fx-border-color: #00b4d830;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.total-label-text { -fx-font-size: 12px; -fx-text-fill: #5a7080; }
+.total-amount {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #06d6a0;
+    -fx-effect: dropshadow(gaussian, rgba(6,214,160,0.3), 6, 0, 0, 0);
+}
+
+/* === CONFIRM BUTTON === */
+.confirm-order-btn {
+    -fx-background-color: linear-gradient(to bottom, #06d6a0, #04b889);
+    -fx-text-fill: #040f1a;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 16 20;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(6,214,160,0.55), 16, 0, 0, 4);
+}
+.confirm-order-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #04c490, #03a07a);
+    -fx-scale-x: 1.015;
+    -fx-scale-y: 1.015;
+    -fx-effect: dropshadow(gaussian, rgba(6,214,160,0.75), 22, 0, 0, 6);
+}
+.confirm-order-btn:pressed { -fx-scale-x: 0.99; -fx-scale-y: 0.99; }
+
+/* === ACTION BUTTONS === */
+.clear-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #ef535060;
+    -fx-border-radius: 7;
+    -fx-text-fill: #ef5350;
+    -fx-font-size: 12px;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+.clear-btn:hover { -fx-background-color: #ef535015; -fx-border-color: #ef5350; }
+
+.remove-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #445566;
+    -fx-border-radius: 6;
+    -fx-text-fill: #5a7080;
+    -fx-font-size: 11px;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+.remove-btn:hover { -fx-border-color: #ef5350; -fx-text-fill: #ef5350; }
